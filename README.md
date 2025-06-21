@@ -127,9 +127,9 @@ SUPPORT & CONTRIBUTION
 
 This script is maintained by Cloud House Technologies. For feature requests, issues, or contributions:
 
-- Email: hello@cloudhouse.tech
-- Website: https://cloudhouse.tech
-- GitHub Issues: https://github.com/cloudhouse/laravel-admin-dashboard/issues
+- Email: hello@cloudhousebd.com
+- Website: https://cloudhousebd.com
+- GitHub Issues: https://github.com/cloudhouse/laravel-12-admin-dashboard/issues
 
 ------------------------------------------------------
 
