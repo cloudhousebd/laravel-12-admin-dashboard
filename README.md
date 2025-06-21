@@ -129,7 +129,7 @@ This script is maintained by Cloud House Technologies. For feature requests, iss
 
 - Email: hello@cloudhousebd.com
 - Website: https://cloudhousebd.com
-- GitHub Issues: https://github.com/cloudhouse/laravel-12-admin-dashboard/issues
+- GitHub Issues: https://github.com/cloudhousebd/laravel-12-admin-dashboard/issues
 
 ------------------------------------------------------
 
