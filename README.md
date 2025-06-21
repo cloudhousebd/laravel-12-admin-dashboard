@@ -1,61 +1,141 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Laravel 12 Admin Dashboard — Cloud House Technologies
+======================================================
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to the Laravel 12 Admin Dashboard by Cloud House Technologies — a modular, scalable admin panel built with simplicity and robustness in mind.
 
-## About Laravel
+This starter kit is crafted using Laravel 12, integrated with Laravel UI and Bootstrap 5, featuring ready-to-use authentication, a clean admin layout, and separated access control through guards.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+------------------------------------------------------
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+FEATURES
+--------
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+✅ Laravel 12 (Latest Stable)  
+✅ User Authentication (Login, Register, Password Reset)  
+✅ Laravel UI with Bootstrap 5 Styling  
+✅ Separate Admin Guard with Custom Login  
+✅ Role-Based Middleware Protection (Admin/User)  
+✅ Modular Folder Structure for Scalability  
+✅ Blade Components for Layout & Reuse  
+✅ Clean Auth Redirection for Admin vs User  
+✅ Secure Session & CSRF Protection  
 
-## Learning Laravel
+------------------------------------------------------
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+FOLDER STRUCTURE HIGHLIGHTS
+---------------------------
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+app/
+├── Http/
+│   ├── Controllers/
+│   │   ├── Admin/        → Admin dashboard & auth
+│   │   └── Auth/         → Default user authentication
+├── Models/
+│   ├── User.php
+│   └── Admin.php         → Custom admin guard model
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+resources/
+├── views/
+│   ├── admin/            → Admin views
+│   └── auth/             → Auth views (login, register, etc.)
 
-## Laravel Sponsors
+routes/
+├── web.php               → User routes
+└── admin.php             → Admin-only routes
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+------------------------------------------------------
 
-### Premium Partners
+INSTALLATION GUIDE
+------------------
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. Clone the Repo
 
-## Contributing
+   git clone https://github.com/cloudhouse/laravel-admin-dashboard.git
+   cd laravel-admin-dashboard
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Install PHP & JS Dependencies
 
-## Code of Conduct
+   composer install
+   npm install && npm run dev
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. Environment Setup
 
-## Security Vulnerabilities
+   cp .env.example .env
+   php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   (Then update your .env with DB and app info.)
 
-## License
+4. Run Migrations
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   php artisan migrate
+
+5. Seed an Admin Account (Optional)
+
+   php artisan tinker
+
+   >>> \App\Models\Admin::create([
+         'name' => 'Admin',
+         'email' => 'admin@example.com',
+         'password' => bcrypt('password'),
+     ]);
+
+6. Serve the App
+
+   php artisan serve
+
+   Visit:
+   - User login → /login
+   - Admin login → /admin/login
+
+------------------------------------------------------
+
+AUTHENTICATION & GUARDS
+-----------------------
+
+We use separate guards for users and admins:
+
+- `web` → default users
+- `admin` → admin-only routes
+
+This ensures clear isolation of roles and easy expansion in the future.
+
+------------------------------------------------------
+
+TESTING ADMIN ACCESS
+--------------------
+
+Try accessing /admin without logging in — you’ll be redirected to /admin/login.
+
+After successful login via the admin guard, you’ll be taken to the admin dashboard at /admin.
+
+------------------------------------------------------
+
+TECH STACK
+----------
+
+- PHP 8.2+
+- Laravel 12.x
+- Laravel UI (Bootstrap Auth Scaffolding)
+- Blade Templating
+- MySQL/PostgreSQL compatible
+- Bootstrap 5
+
+------------------------------------------------------
+
+SUPPORT & CONTRIBUTION
+----------------------
+
+This script is maintained by Cloud House Technologies. For feature requests, issues, or contributions:
+
+- Email: hello@cloudhouse.tech
+- Website: https://cloudhouse.tech
+- GitHub Issues: https://github.com/cloudhouse/laravel-admin-dashboard/issues
+
+------------------------------------------------------
+
+LICENSE
+-------
+
+This project is open-source under the MIT License. You're free to use, modify, and distribute.
+
+© Cloud House Technologies 2025 — Smart Code. Real Impact.
